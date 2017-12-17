@@ -29,7 +29,7 @@ describe OpenWeather do
       expect(@openweather.get_coord_lat).to be_between(-90,90)
     end
 
-    it 'should return a hash for weather' do
+    it 'should return an array for weather' do
       expect(@openweather.get_weather).to be_kind_of(Array)
     end
 

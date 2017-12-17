@@ -142,5 +142,5 @@ class SingleWeatherCity
 end
 
 x = SingleWeatherCity.new
-x.get_single_weather('London', 'UK')
-puts x.single_weather_data
+# x.get_single_weather('London', 'UK')
+# puts x.single_weather_data

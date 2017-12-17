@@ -1,15 +1,15 @@
 require 'httparty'
 require 'json'
 
-class SingleWeatherGeoloc
+class SingleWeatherZip
   include HTTParty
 
   attr_accessor :single_weather_data
 
   base_uri 'http://samples.openweathermap.org/data/2.5/weather'
 
-  def get_single_weather_geoloc(lat, lon)
-    @single_weather_data = JSON.parse(self.class.get("?lat=#{lat}&lon=#{lon}&appid=c7f1cc423d07fe56165144b6d399149a").body)
+  def get_single_weather(zip)
+    @single_weather_data = JSON.parse(self.class.get("?zip=#{zip},us&appid=c7f1cc423d07fe56165144b6d399149a").body)
   end
 
   def get_coord
@@ -72,12 +72,8 @@ class SingleWeatherGeoloc
     get_main["temp_max"]
   end
 
-  def get_main_sealevel
-    get_main["sea_level"]
-  end
-
-  def get_main_grndlevel
-    get_main["grnd_level"]
+  def get_visibility
+    @single_weather_data["base"]
   end
 
   def get_wind
@@ -106,6 +102,14 @@ class SingleWeatherGeoloc
 
   def get_sys
     @single_weather_data["sys"]
+  end
+
+  def get_sys_type
+    get_sys["type"]
+  end
+
+  def get_sys_ID
+    get_sys["id"]
   end
 
   def get_sys_message
@@ -138,6 +142,5 @@ class SingleWeatherGeoloc
 
 end
 
-x = SingleWeatherGeoloc.new
-puts x.get_single_weather_geoloc('35', '139')
-# puts x.get_coord
+x = SingleWeatherZip.new
+# puts x.get_single_weather('94040')

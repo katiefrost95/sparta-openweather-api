@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe OpenWeather do
 
-  context 'requesting information on a single weather location works correctly' do
+  context 'requesting information on a single weather location by zip works correctly' do
 
     before(:all) do
-      @openweather = OpenWeather.new.single_weather_service
-      @openweather.get_single_weather('London','uk')
+      @openweather = OpenWeather.new.single_weather_zip_service
+      @openweather.get_single_weather('94040')
     end
 
     it 'should coord to return a hash' do
@@ -90,7 +90,7 @@ describe OpenWeather do
     end
 
     it 'should return an integer for wind degrees' do
-      expect(@openweather.get_wind_deg).to be_kind_of(Integer)
+      expect(@openweather.get_wind_deg).to be_kind_of(Integer).or be_kind_of(Float)
     end
 
     it 'should return hash for clouds' do

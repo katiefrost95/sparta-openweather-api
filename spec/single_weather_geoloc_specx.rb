@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe OpenWeather do
 
-  context 'requesting information on a single weather location works correctly' do
+  context 'requesting information on a single weather location by geographic location' do
 
     before(:all) do
-      @openweather = OpenWeather.new.single_weather_service
-      @openweather.get_single_weather('London','uk')
+      @openweather = OpenWeather.new.single_weather_geoloc_service
+      @openweather.get_single_weather_geoloc('35', '139')
     end
 
-    it 'should coord to return a hash' do
+    it 'should coord to return a hash for coord' do
       expect(@openweather.get_coord).to be_kind_of(Hash)
     end
 
@@ -62,7 +62,7 @@ describe OpenWeather do
     end
 
     it 'should return an integer for main pressure' do
-      expect(@openweather.get_main_pressure).to be_kind_of(Integer)
+      expect(@openweather.get_main_pressure).to be_kind_of(Float).or be_kind_of(Integer)
     end
 
     it 'should return an integer for humidity' do
@@ -77,8 +77,12 @@ describe OpenWeather do
       expect(@openweather.get_main_maxtemp).to be_kind_of(Float)
     end
 
-    it 'should return a string for visibility' do
-      expect(@openweather.get_visibility).to be_kind_of(String)
+    it 'should return an float for sea level' do
+      expect(@openweather.get_main_sealevel).to be_kind_of(Float)
+    end
+
+    it 'should return an float for grnd level' do
+      expect(@openweather.get_main_grndlevel).to be_kind_of(Float)
     end
 
     it 'should return a hash for wind' do
@@ -107,14 +111,6 @@ describe OpenWeather do
 
     it 'should return a hash for sys' do
       expect(@openweather.get_sys).to be_kind_of(Hash)
-    end
-
-    it 'should return integer for sys type' do
-      expect(@openweather.get_sys_type).to be_kind_of(Integer)
-    end
-
-    it 'should return integer for ID' do
-      expect(@openweather.get_sys_ID).to be_kind_of(Integer)
     end
 
     it 'should return float for message' do

@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe OpenWeather do
 
-  context 'requesting information on a single weather location works correctly' do
+  context 'requesting information on a single weather location by city' do
 
     before(:all) do
-      @openweather = OpenWeather.new.single_weather_service
-      @openweather.get_single_weather('London','uk')
+      @openweather = OpenWeather.new.single_weatherID_service
+      @openweather.get_single_weather_Id('2172797')
     end
 
     it 'should coord to return a hash' do
@@ -157,5 +157,7 @@ describe OpenWeather do
       expect(@openweather.get_cod).to be_kind_of(Integer)
     end
 
+
   end
+
 end

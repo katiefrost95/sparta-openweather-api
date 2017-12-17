@@ -1,8 +1,10 @@
 require_relative 'services/single_weather_service'
-require_relative 'services/multi_weather_service'
 require_relative 'services/single_weatherID_service'
 require_relative 'services/single_weather_geoloc_service'
 require_relative 'services/single_weather_zip_service'
+require_relative 'services/multiple_weather_cities_service'
+require_relative 'services/multiple_weather_ids_service'
+require_relative 'services/multiple_weather_cycle_service'
 
 class OpenWeather
 
@@ -22,8 +24,16 @@ class OpenWeather
     SingleWeatherZip.new
   end
 
-  def multiple_weather_service
-    MultipleOpenWeatherService.new
+  def multiple_weather_cities_service
+    MultipleWeatherCity.new
+  end
+
+  def multiple_weather_ids_service
+    MultipleWeatherCityId.new
+  end
+
+  def multiple_weather_cycle_service
+    MultipleWeatherCityCycle.new
   end
 
 end

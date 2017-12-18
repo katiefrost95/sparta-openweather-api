@@ -112,7 +112,7 @@ describe OpenWeather do
 
     it 'should return float or integer for wind degrees' do
       @openweather.get_wind_deg.each do |c|
-        expect(c).to be_kind_of(Float).or be_kind_of(Integer)
+        expect(c).to be_kind_of(Float).or be_kind_of(Integer).or be_nil
       end
     end
 

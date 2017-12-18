@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe OpenWeather do
 
-  context 'requesting information on a multiple weather location' do
+  context 'requesting information on a multiple weather location of rectangular box coordinates' do
 
     before(:all) do
       @openweather = OpenWeather.new.multiple_weather_cities_service

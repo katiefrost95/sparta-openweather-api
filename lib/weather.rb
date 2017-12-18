@@ -5,8 +5,18 @@ require_relative 'services/single_weather_zip_service'
 require_relative 'services/multiple_weather_cities_service'
 require_relative 'services/multiple_weather_ids_service'
 require_relative 'services/multiple_weather_cycle_service'
+require_relative 'generating_data/yaml_parse'
+require_relative 'generating_data/json_parse'
 
 class OpenWeather
+
+  def random_city_id
+    YamlData.new
+  end
+
+  def random_country_name
+    ParseJson.new
+  end
 
   def single_weather_service
     SingleWeatherCity.new

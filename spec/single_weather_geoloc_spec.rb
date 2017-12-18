@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe OpenWeather do
 
-  context 'requesting information on a single weather location by geographic location' do
+  context 'requesting information on a single weather location by geographic coordinates' do
 
     before(:all) do
       @openweather = OpenWeather.new.single_weather_geoloc_service

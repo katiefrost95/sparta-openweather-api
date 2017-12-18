@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe OpenWeather do
 
-  context 'requesting information on a single weather location by city' do
+  context 'requesting information on a single weather location by city ID' do
 
     before(:all) do
       @openweather = OpenWeather.new.single_weatherID_service
-      @openweather.get_single_weather_Id('2172797')
+      @rand_id = OpenWeather.new.random_city_id.random_city_by_id
+      @openweather.get_single_weather_Id(@rand_id)
     end
 
     it 'should coord to return a hash' do

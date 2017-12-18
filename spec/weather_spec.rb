@@ -6,7 +6,8 @@ describe OpenWeather do
 
     before(:all) do
       @openweather = OpenWeather.new.single_weather_service
-      @openweather.get_single_weather('London','uk')
+      @random_city = OpenWeather.new.random_country_name.get_random_country_name
+      @openweather.get_single_weather(@random_city)
     end
 
     it 'should coord to return a hash' do

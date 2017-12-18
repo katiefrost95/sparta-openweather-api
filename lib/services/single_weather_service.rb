@@ -8,8 +8,8 @@ class SingleWeatherCity
 
   base_uri 'http://samples.openweathermap.org/data/2.5/weather'
 
-  def get_single_weather(city, country)
-    @single_weather_data = JSON.parse(self.class.get("?q=#{city},#{country}&appid=c7f1cc423d07fe56165144b6d399149a").body)
+  def get_single_weather(city)
+    @single_weather_data = JSON.parse(self.class.get("?q=#{city}&appid=c7f1cc423d07fe56165144b6d399149a").body)
   end
 
   def get_coord

@@ -18,6 +18,14 @@ class OpenWeather
     ParseJson.new
   end
 
+  def random_lon
+    ParseJson.new
+  end
+
+  def random_lat
+    ParseJson.new
+  end
+
   def single_weather_service
     SingleWeatherCity.new
   end

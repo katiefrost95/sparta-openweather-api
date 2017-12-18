@@ -6,7 +6,9 @@ describe OpenWeather do
 
     before(:all) do
       @openweather = OpenWeather.new.single_weather_geoloc_service
-      @openweather.get_single_weather_geoloc('35', '139')
+      @random_lon = OpenWeather.new.random_lon.get_random_lon
+      @random_lat = OpenWeather.new.random_lat.get_random_lon
+      @openweather.get_single_weather_geoloc(@random_lat, @random_lon)
     end
 
     it 'should coord to return a hash for coord' do

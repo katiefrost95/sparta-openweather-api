@@ -8,7 +8,7 @@ class SingleWeatherGeoloc
 
   base_uri 'http://samples.openweathermap.org/data/2.5/weather'
 
-  def get_single_weather_geoloc(lat, lon)
+  def get_single_weather_geoloc(lat,lon)
     @single_weather_data = JSON.parse(self.class.get("?lat=#{lat}&lon=#{lon}&appid=c7f1cc423d07fe56165144b6d399149a").body)
   end
 
@@ -138,6 +138,6 @@ class SingleWeatherGeoloc
 
 end
 
-x = SingleWeatherGeoloc.new
-puts x.get_single_weather_geoloc('35', '139')
+# x = SingleWeatherGeoloc.new
+# puts x.get_single_weather_geoloc('35', '139')
 # puts x.get_coord

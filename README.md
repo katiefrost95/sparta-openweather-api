@@ -1,6 +1,6 @@
 # sparta-openweather-api
 
-##Brief
+## Brief
 
 To create a service object model that will test api's from the openweathermap website from single locations to multiple locations. Separated the tests into two classes: a single class and a multiple class which both drew from the superclass.
 
@@ -11,7 +11,7 @@ I also made the testing dynamic and randomly sift through data from yaml files a
 
 ### To run the tests
 
-clone the repo into your terminal by running the command:
+Clone the repo into your terminal by running the command:
 
 `git clone git@github.com:katiefrost95/sparta-openweather-api.git`
 

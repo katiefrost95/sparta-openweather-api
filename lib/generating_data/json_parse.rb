@@ -19,5 +19,3 @@ class ParseJson
 
 
 end
-# x = ParseJson.new
-# puts x.get_random_lon_lat
